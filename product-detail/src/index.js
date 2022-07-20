@@ -1,14 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { StylesProvider } from '@material-ui/core/styles';
-import RoutePaths from './routes';
+import Routes from './Routes';
 
 ReactDOM.render(
-  <StylesProvider>
-    <BrowserRouter>
-      <RoutePaths />
-    </BrowserRouter>
-  </StylesProvider>,
-  document.querySelector("#product-dev-root")
+  <Routes />,
+  document.querySelector("#main-dev-root")
 );

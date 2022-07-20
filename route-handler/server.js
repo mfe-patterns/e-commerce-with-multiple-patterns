@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const proxy = require("express-http-proxy");
-const fs = require("fs");
 
 const server = express();
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -13,50 +12,33 @@ var layoutServer = "http://localhost:8080",
   cartServer = "http://localhost:8082",
   productServer = "http://localhost:8083";
 
-function proxyReqOptDecorator(proxyReqOpts) {
-  return proxyReqOpts;
-}
-
-function match(domain, proxyRoute) {
+function match(domain) {
   return proxy(domain, {
-    proxyReqPathResolver(req, res) {
-      console.log(`${domain}${proxyRoute}${req.url}`);
-      return `${proxyRoute}${req.url}`;
-    },
-    proxyReqOptDecorator(proxyReqOpts) {
-      return proxyReqOpts;
-    },
-    proxyReqOptDecorator,
+    proxyReqPathResolver(req) {
+      console.log(`${domain}${req.url}`);
+      return `${domain}${req.url}`;
+    }
   });
 }
 
-function matchPost(domain, proxyRoute) {
-  return proxy(domain, {
-    proxyReqPathResolver(req, res) {
-      console.log(`${domain}${proxyRoute}${req.url}`);
-      return `${proxyRoute}${req.url}`;
-    },
-    proxyReqBodyDecorator: function (bodyContent, srcReq) {
-      return bodyContent;
-    },
-    proxyReqOptDecorator,
-  });
-}
+server.use("/layout", match(layoutServer));
 
-server.use("/layout", matchPost(layoutServer, ""));
-server.use("/layout/*", matchPost(layoutServer, "/layout/*"));
+server.use("/cart", match(cartServer));
 
-server.use("/cart", matchPost(cartServer, ""));
-server.use("/cart/*", matchPost(cartServer, "/cart/*"));
+server.use("/catalog", match(catalogServer));
 
-server.use("/catalog", matchPost(catalogServer, ""));
-server.use("/catalog/*", matchPost(catalogServer, "/catalog/*"));
+server.use("/product", match(productServer));
 
-server.use("/product", matchPost(productServer, ""));
-server.use("/product/*", matchPost(productServer, "/product/*"));
-server.get("/product/:slug", function(req, res) {
-  res.render("user", userdata);
-});
+// server.use("/layout/*", match(layoutServer, "/layout/*"));
+
+// server.use("/cart", match(cartServer, ""));
+// server.use("/cart/*", match(cartServer, "/cart/*"));
+
+// server.use("/catalog/:id", match(productServer, "/catalog/:id"));
+// server.use("/catalog/*", match(catalogServer, "/catalog/*"));
+// server.use("/catalog", match(catalogServer, ""));
+
+// server.use("/product/*", match(productServer, "/product/*"));
 
 server.listen(3000, (err) => {
   if (err) throw err;

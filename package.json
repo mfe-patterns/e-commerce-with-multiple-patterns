@@ -16,7 +16,7 @@
     "run-product-detail": "cd product-detail && npm start",
     "run-server": "cd route-handler && npm run run-server",
     "start-all": "concurrently \"npm run run-layout\" \"npm run run-catalog\" \"npm run run-cart\" \"npm run run-server\"",
-    "start-without-server": "concurrently \"npm run run-layout\" \"npm run run-catalog\" \"npm run run-cart\"  \"npm run run-product-detail\""
+    "start-without-server": "concurrently \"npm run run-layout\" \"npm run run-catalog\" \"npm run run-cart\" \"npm run run-product-detail\""
   },
   "repository": {
     "type": "git",

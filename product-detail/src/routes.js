@@ -1,16 +1,15 @@
 import React from 'react';
-import { Routes, Route } from "react-router-dom";
-
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import ProductDetail from './components/ProductDetail';
-import Dashboard from './components/Dashboard';
+import App from './App';
 
-const RoutePaths = () => {
+export default () => {
   return (
-    <Routes>
-      <Route path="/product-details" element={<Dashboard />} />
-      <Route path="" element={<ProductDetail />} />
-    </Routes>
-  );
-};
-
-export default RoutePaths;
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={App} />
+        <Route path="/product/:id" component={ProductDetail} />
+      </Switch>
+    </BrowserRouter>
+  )
+}
