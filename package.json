@@ -8,13 +8,15 @@
     "prepare-cart": "cd cart && npm i",
     "prepare-catalog": "cd catalog && npm i",
     "prepare-layout": "cd layout && npm i",
-    "prepare-all": "npm run prepare-server && npm run prepare-cart && npm run prepare-catalog && npm run prepare-layout",
+    "prepare-product-detail": "cd product-detail && npm i",
+    "prepare-all": "npm run prepare-server && npm run prepare-cart && npm run prepare-catalog && npm run prepare-layout && npm run prepare-product-detail",
     "run-layout": "cd layout && npm start",
     "run-catalog": "cd catalog && npm start",
     "run-cart": "cd cart && npm start",
+    "run-product-detail": "cd product-detail && npm start",
     "run-server": "cd route-handler && npm run run-server",
     "start-all": "concurrently \"npm run run-layout\" \"npm run run-catalog\" \"npm run run-cart\" \"npm run run-server\"",
-    "start-without-server": "concurrently \"npm run run-layout\" \"npm run run-catalog\" \"npm run run-cart\""
+    "start-without-server": "concurrently \"npm run run-layout\" \"npm run run-catalog\" \"npm run run-cart\"  \"npm run run-product-detail\""
   },
   "repository": {
     "type": "git",
