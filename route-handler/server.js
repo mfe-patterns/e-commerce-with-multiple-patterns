@@ -8,9 +8,10 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.disable("x-powered-by");
 server.use(bodyParser.json());
 
-var catalogServer = "http://localhost:8081",
-  cartServer = "http://localhost:8082",
-  containerServer = "http://localhost:8080";
+var layoutServer = "http://localhost:8080",
+  catalogServer = "http://localhost:8081",
+  cartServer = "http://localhost:8082";
+  
 
 function proxyReqOptDecorator(proxyReqOpts) {
   return proxyReqOpts;
@@ -41,6 +42,9 @@ function matchPost(domain, proxyRoute) {
     proxyReqOptDecorator,
   });
 }
+
+server.use("/layout", matchPost(layoutServer, ""));
+server.use("/layout/*", matchPost(layoutServer, "/layout/*"));
 
 server.use("/cart", matchPost(cartServer, ""));
 server.use("/cart/*", matchPost(cartServer, "/cart/*"));
