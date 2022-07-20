@@ -10,8 +10,8 @@ server.use(bodyParser.json());
 
 var layoutServer = "http://localhost:8080",
   catalogServer = "http://localhost:8081",
-  cartServer = "http://localhost:8082";
-  
+  cartServer = "http://localhost:8082",
+  productServer = "http://localhost:8083";
 
 function proxyReqOptDecorator(proxyReqOpts) {
   return proxyReqOpts;
@@ -51,6 +51,12 @@ server.use("/cart/*", matchPost(cartServer, "/cart/*"));
 
 server.use("/catalog", matchPost(catalogServer, ""));
 server.use("/catalog/*", matchPost(catalogServer, "/catalog/*"));
+
+server.use("/product", matchPost(productServer, ""));
+server.use("/product/*", matchPost(productServer, "/product/*"));
+server.get("/product/:slug", function(req, res) {
+  res.render("user", userdata);
+});
 
 server.listen(3000, (err) => {
   if (err) throw err;
