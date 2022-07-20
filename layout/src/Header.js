@@ -17,7 +17,7 @@ export default () => {
   const classes = useStyles();
   return (
     <header className={classes.header}>
-      <a href="http://localhost:3000/catalog/">
+      <a href="http://localhost:3000/products/">
         <Typography variant="h4" >
           FooBar.com
         </Typography>

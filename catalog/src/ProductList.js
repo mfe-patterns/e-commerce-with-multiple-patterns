@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -72,11 +73,13 @@ export default function ProductList() {
           {products.map((product) => (
             <Grid item key={product.id} xs={12} sm={6} md={4}>
               <Card className={classes.card}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  image={product.image}
-                  title={product.title}
-                />
+                <Link to={`/products/${product.id}`}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={product.image}
+                    title={product.title}
+                  />
+                </Link>
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
                     {product.title}

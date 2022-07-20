@@ -1,14 +1,15 @@
-export * from './ProductList';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { StylesProvider } from '@material-ui/core/styles';
+import { BrowserRouter } from 'react-router-dom';
 
-import ProductList from './ProductList';
+import App from './App';
 
 ReactDOM.render(
   <StylesProvider>
-    <ProductList />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StylesProvider>,
   document.querySelector('#main-dev-root')
 );

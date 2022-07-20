@@ -9,8 +9,7 @@ server.use(bodyParser.json());
 
 var layoutServer = "http://localhost:8080",
   catalogServer = "http://localhost:8081",
-  cartServer = "http://localhost:8082",
-  productServer = "http://localhost:8083";
+  cartServer = "http://localhost:8082";
 
 function match(domain) {
   return proxy(domain, {
@@ -25,20 +24,7 @@ server.use("/layout", match(layoutServer));
 
 server.use("/cart", match(cartServer));
 
-server.use("/catalog", match(catalogServer));
-
-server.use("/product", match(productServer));
-
-// server.use("/layout/*", match(layoutServer, "/layout/*"));
-
-// server.use("/cart", match(cartServer, ""));
-// server.use("/cart/*", match(cartServer, "/cart/*"));
-
-// server.use("/catalog/:id", match(productServer, "/catalog/:id"));
-// server.use("/catalog/*", match(catalogServer, "/catalog/*"));
-// server.use("/catalog", match(catalogServer, ""));
-
-// server.use("/product/*", match(productServer, "/product/*"));
+server.use("/products", match(catalogServer));
 
 server.listen(3000, (err) => {
   if (err) throw err;
