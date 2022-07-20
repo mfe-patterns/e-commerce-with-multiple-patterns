@@ -10,5 +10,5 @@ ReactDOM.render(
   <StylesProvider>
     <ProductList />
   </StylesProvider>,
-  document.querySelector('#cart-dev-root')
+  document.querySelector('#main-dev-root')
 );

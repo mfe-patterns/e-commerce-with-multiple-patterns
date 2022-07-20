@@ -1,4 +1,3 @@
-const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWelpackPlugin = require('html-webpack-plugin');
 
@@ -11,7 +10,13 @@ const devConfig = {
       template: './public/index.html'
     })  
   ],
-  entry: ['./src/index.js'],
+  entry: {
+    layout: './src/layout.js'
+  },
+  output: {
+    filename: '[name].bundle.js',
+    clean: true,
+  }
 }
 
 module.exports = merge(commonConfig, devConfig);

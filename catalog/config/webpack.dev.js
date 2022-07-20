@@ -16,6 +16,13 @@ const devConfig = {
       template: "./public/index.html",
     }),
   ],
+  entry: {
+    catalog: './src/index.js'
+  },
+  output: {
+    filename: '[name].bundle.js',
+    clean: true,
+  }
 };
 
 module.exports = merge(commonConfig, devConfig);

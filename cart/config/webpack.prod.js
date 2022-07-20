@@ -1,4 +1,3 @@
-const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWelpackPlugin = require('html-webpack-plugin');
 
@@ -12,6 +11,13 @@ const devConfig = {
     })  
   ],
   entry: ['./src/index.js'],
+  entry: {
+    cart: './src/index.js'
+  },
+  output: {
+    filename: '[name].bundle.js',
+    clean: true,
+  }
 }
 
 module.exports = merge(commonConfig, devConfig);

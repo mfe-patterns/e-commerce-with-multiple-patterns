@@ -20,7 +20,7 @@ export default () => {
   return (
     <div className={classes.layout}>
       <Header />
-      <main className={classes.mainContent} />
+      <main className={classes.mainContent} id="main-dev-root" />
       <Footer />
     </div>
   )

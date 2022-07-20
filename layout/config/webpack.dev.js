@@ -15,7 +15,14 @@ const devConfig = {
     new HtmlWelpackPlugin({
       template: './public/index.html'
     })
-  ]
+  ],
+  entry: {
+    layout: './src/index.js',
+  },
+  output: {
+    filename: '[name].bundle.js',
+    clean: true,
+  }
 }
 
 module.exports = merge(commonConfig, devConfig);
