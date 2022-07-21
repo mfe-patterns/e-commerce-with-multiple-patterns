@@ -58,14 +58,9 @@ export default function ProductList() {
     setProducts(productList);
   }, []);
 
-  const addToCart = (product) => () => {
-    const currentProductsInCart = JSON.parse(localStorage.getItem('products')) || [];
-    const updatedProductsInCart = [...currentProductsInCart, product.id]
-
-    const addToCartEvent = new CustomEvent('UPDATE_CART', { detail: { productsInCart: updatedProductsInCart }});
+  const addToCart = (product) => {
+    const addToCartEvent = new CustomEvent('UPDATE_CART', { detail: { productsInCart: product }});
     window.dispatchEvent(addToCartEvent);
-
-    localStorage.setItem('products', JSON.stringify(updatedProductsInCart));
   }
 
   return (
@@ -91,7 +86,7 @@ export default function ProductList() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary" onClick={addToCart(product)}>
+                  <Button size="small" color="primary" onClick={() => addToCart(product)}>
                     Add to Cart
                   </Button>
                 </CardActions>
