@@ -1,3 +1,4 @@
+const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWelpackPlugin = require('html-webpack-plugin');
 
@@ -21,7 +22,6 @@ const devConfig = {
   },
   output: {
     filename: '[name].bundle.js',
-    clean: true,
   }
 };
 

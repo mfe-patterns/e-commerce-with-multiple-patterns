@@ -21,7 +21,6 @@ const devConfig = {
   },
   output: {
     filename: '[name].bundle.js',
-    clean: true,
   }
 }
 
