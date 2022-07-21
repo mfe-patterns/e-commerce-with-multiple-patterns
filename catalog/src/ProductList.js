@@ -59,11 +59,13 @@ export default function ProductList() {
   }, []);
 
   const addToCart = (product) => () => {
-    const currentAddedProducts = JSON.parse(localStorage.getItem('products')) || [];
+    const currentProductsInCart = JSON.parse(localStorage.getItem('products')) || [];
+    const updatedProductsInCart = [...currentProductsInCart, product.id]
 
-    console.log(currentAddedProducts);
+    const addToCartEvent = new CustomEvent('UPDATE_CART', { detail: { productsInCart: updatedProductsInCart }});
+    window.dispatchEvent(addToCartEvent);
 
-    localStorage.setItem('products', JSON.stringify([...currentAddedProducts, product]));
+    localStorage.setItem('products', JSON.stringify(updatedProductsInCart));
   }
 
   return (

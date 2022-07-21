@@ -52,19 +52,21 @@ export default function ProductList() {
   const [products, setProducts] = useState([]);
 
   useEffect(async () => {
-    const productList = JSON.parse(localStorage.getItem('products')) || [];
+    const productsInCart = JSON.parse(localStorage.getItem('products')) || [];
 
-    console.log(localStorage.getItem('products'));
-
-    setProducts(productList);
+    const productsResponse = await Promise.all(productsInCart.map(productId => fetch(`https://fakestoreapi.com/products/${productId}`)))
+    const products = await Promise.all(productsResponse.map(res => res.json()))
+    setProducts(products);
   }, []);
 
   const removeFromCart = (product) => () => {
-    const currentAddedProducts = JSON.parse(localStorage.getItem('products')) || [];
-    const newProducts = currentAddedProducts.filter(p => p.id !== product.id);
+    const updatedProductsInCart = products.filter(p => p.id !== product.id);
+    setProducts(updatedProductsInCart);
+    
+    const removeFromCartEvent = new CustomEvent('UPDATE_CART', { detail: { productsInCart: updatedProductsInCart.map(p => p.id) } });
+    window.dispatchEvent(removeFromCartEvent);
 
-    setProducts(newProducts);
-    localStorage.setItem('products', JSON.stringify(newProducts));
+    localStorage.setItem('products', JSON.stringify(updatedProductsInCart));
   }
 
   return (
@@ -74,8 +76,8 @@ export default function ProductList() {
           {
             products.length > 0 ?
               <Grid container spacing={4}>
-                {products.map((product) => (
-                  <Grid item key={product.id} xs={12} sm={6} md={4}>
+                {products.map((product, index) => (
+                  <Grid item key={`${product.id}_${index}`} xs={12} sm={6} md={4}>
                     <Card className={classes.card}>
                       <CardMedia
                         className={classes.cardMedia}
