@@ -31,21 +31,31 @@ const useStyles = makeStyles((theme) => ({
 export default () => {
   const [productsInCart, setProductsInCart] = useState(JSON.parse(localStorage.getItem('products')) || []);
 
-  useEffect(() => {
-    const addToCartEventlistener = ({ detail }) => {
-      const updatedCartItems = [...productsInCart, detail.productsInCart]
-      localStorage.setItem('products', JSON.stringify(updatedCartItems));
-      setProductsInCart(updatedCartItems);
-    };
+  const addToCartEventlistener = ({ detail }) => {
+    const currentProductsInCart = JSON.parse(localStorage.getItem('products')) || [];
+    const updatedProductsInCart = [...currentProductsInCart, detail.productId];
+    setProductsInCart(updatedProductsInCart);
+    localStorage.setItem('products', JSON.stringify(updatedProductsInCart));
+  };
 
-    window.addEventListener('UPDATE_CART', addToCartEventlistener)
+  const removeFromCartEventlistener = ({ detail }) => {
+    const currentProductsInCart = JSON.parse(localStorage.getItem('products')) || [];
+    const updatedProductsInCart = currentProductsInCart.filter(p => p !== detail.productId);
+    setProductsInCart(updatedProductsInCart);
+    localStorage.setItem('products', JSON.stringify(updatedProductsInCart));
+  };
+
+  useEffect(() => {
+    window.addEventListener('ADD_TO_CART', addToCartEventlistener)
+    window.addEventListener('REMOVE_FROM_CART', removeFromCartEventlistener)
     return () => {
-      window.removeEventListener('UPDATE_CART', addToCartEventlistener)
+      window.removeEventListener('ADD_TO_CART', addToCartEventlistener)
+      window.removeEventListener('REMOVE_FROM_CART', addToCartEventlistener)
     }
   }, []);
 
   const classes = useStyles();
-  
+
   return (
     <header className={classes.header}>
       <a href="http://localhost:3000/products/">

@@ -12,7 +12,7 @@ export default function ProductDetails() {
   }, []);
 
   const addToCart = (e) => {
-    const event = new CustomEvent('UPDATE_CART', {detail: { productsInCart: product}});
+    const event = new CustomEvent('ADD_TO_CART', {detail: { productId: product.id}});
     window.dispatchEvent(event)
   }
 

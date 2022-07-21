@@ -53,9 +53,9 @@ export default function ProductList() {
 
   useEffect(async () => {
     const productsInCart = JSON.parse(localStorage.getItem('products')) || [];
+    const productsResponse = await Promise.all(productsInCart.map(productId => fetch(`https://fakestoreapi.com/products/${productId}`)));
+    const products = await Promise.all(productsResponse.map(res => res.json()));
 
-    const productsResponse = await Promise.all(productsInCart.map(productId => fetch(`https://fakestoreapi.com/products/${productId}`)))
-    const products = await Promise.all(productsResponse.map(res => res.json()))
     setProducts(products);
   }, []);
 
@@ -63,10 +63,8 @@ export default function ProductList() {
     const updatedProductsInCart = products.filter(p => p.id !== product.id);
     setProducts(updatedProductsInCart);
     
-    const removeFromCartEvent = new CustomEvent('UPDATE_CART', { detail: { productsInCart: updatedProductsInCart.map(p => p.id) } });
+    const removeFromCartEvent = new CustomEvent('REMOVE_FROM_CART', { detail: { productId: product.id }});
     window.dispatchEvent(removeFromCartEvent);
-
-    localStorage.setItem('products', JSON.stringify(updatedProductsInCart));
   }
 
   return (
