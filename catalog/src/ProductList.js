@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
+
+import { Button, ButtonAction, ButtonSize } from 'ui-components';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -59,7 +60,7 @@ export default function ProductList() {
   }, []);
 
   const addToCart = (product) => {
-    const addToCartEvent = new CustomEvent('ADD_TO_CART', { detail: { productId: product.id }});
+    const addToCartEvent = new CustomEvent('ADD_TO_CART', { detail: { productId: product.id } });
     window.dispatchEvent(addToCartEvent);
   }
 
@@ -86,7 +87,10 @@ export default function ProductList() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary" onClick={() => addToCart(product)}>
+                  <Button buttonType={ButtonAction.PRIMARY}
+                    size={ButtonSize.XLARGE}
+                    disabled={false}
+                    onClick={() => addToCart(product)}>
                     Add to Cart
                   </Button>
                 </CardActions>

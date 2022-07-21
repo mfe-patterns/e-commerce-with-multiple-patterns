@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography Should render typography component {"Component": [Function Heading1], "color": "#111111", "fontFamily": "Roboto-Regular"} with default color 1`] = `
+.c0 {
+  font-family: Roboto-Regular;
+  font-size: 28px;
+  line-height: 35px;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  color: #111111;
+}
+
+<div>
+  <h1
+    class="c0"
+  >
+    Title
+  </h1>
+</div>
+`;
+
+exports[`Typography Should render typography component {"Component": [Function Heading2], "color": "#111111", "fontFamily": "Roboto-Regular"} with default color 1`] = `
+.c0 {
+  font-family: Roboto-Regular;
+  font-size: 25px;
+  line-height: 30px;
+  -webkit-letter-spacing: 0.3px;
+  -moz-letter-spacing: 0.3px;
+  -ms-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+  color: #111111;
+}
+
+<div>
+  <h2
+    class="c0"
+  >
+    Title
+  </h2>
+</div>
+`;
+
+exports[`Typography Should render typography component {"Component": [Function Heading3], "color": "#111111", "fontFamily": "Roboto-Regular"} with default color 1`] = `
+.c0 {
+  font-family: Roboto-Regular;
+  font-size: 22px;
+  line-height: 30px;
+  -webkit-letter-spacing: 0.4px;
+  -moz-letter-spacing: 0.4px;
+  -ms-letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
+  color: #111111;
+}
+
+<div>
+  <h3
+    class="c0"
+  >
+    Title
+  </h3>
+</div>
+`;
+
+exports[`Typography Should render typography component {"Component": [Function Heading4], "color": "#111111", "fontFamily": "Roboto-Regular"} with default color 1`] = `
+.c0 {
+  font-family: Roboto-Regular;
+  font-size: 20px;
+  line-height: 27px;
+  -webkit-letter-spacing: 1.2px;
+  -moz-letter-spacing: 1.2px;
+  -ms-letter-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  color: #111111;
+}
+
+<div>
+  <h4
+    class="c0"
+  >
+    Title
+  </h4>
+</div>
+`;
+
+exports[`Typography Should render typography component {"Component": [Function HelpText], "color": "#28a745", "fontFamily": "Roboto-Regular", "props": [Object]} with default color 1`] = `
+.c0 {
+  font-family: Roboto-Regular;
+  font-size: 11px;
+  line-height: 16px;
+  -webkit-letter-spacing: 0.7px;
+  -moz-letter-spacing: 0.7px;
+  -ms-letter-spacing: 0.7px;
+  letter-spacing: 0.7px;
+  color: #28a745;
+}
+
+<div>
+  <p
+    class="c0"
+    color="#28a745"
+  >
+    Title
+  </p>
+</div>
+`;
+
+exports[`Typography Should render typography component {"Component": [Function HelpText], "color": "#111111CC", "fontFamily": "Roboto-Regular", "props": [Object]} with default color 1`] = `
+.c0 {
+  font-family: Roboto-Regular;
+  font-size: 11px;
+  line-height: 16px;
+  -webkit-letter-spacing: 0.7px;
+  -moz-letter-spacing: 0.7px;
+  -ms-letter-spacing: 0.7px;
+  letter-spacing: 0.7px;
+  color: #111111CC;
+}
+
+<div>
+  <p
+    class="c0"
+    color="#111111CC"
+  >
+    Title
+  </p>
+</div>
+`;
+
+exports[`Typography Should render typography component {"Component": [Function HelpText], "color": "#dc3545", "fontFamily": "Roboto-Regular", "props": [Object]} with default color 1`] = `
+.c0 {
+  font-family: Roboto-Regular;
+  font-size: 11px;
+  line-height: 16px;
+  -webkit-letter-spacing: 0.7px;
+  -moz-letter-spacing: 0.7px;
+  -ms-letter-spacing: 0.7px;
+  letter-spacing: 0.7px;
+  color: #dc3545;
+}
+
+<div>
+  <p
+    class="c0"
+    color="#dc3545"
+  >
+    Title
+  </p>
+</div>
+`;
+
+exports[`Typography Should render typography component {"Component": [Function Label], "color": "#111111", "fontFamily": "Roboto-Regular"} with default color 1`] = `
+.c0 {
+  font-family: Roboto-Regular;
+  font-size: 14px;
+  line-height: 21px;
+  -webkit-letter-spacing: 0.7px;
+  -moz-letter-spacing: 0.7px;
+  -ms-letter-spacing: 0.7px;
+  letter-spacing: 0.7px;
+  color: #111111;
+}
+
+<div>
+  <label
+    class="c0"
+  >
+    Title
+  </label>
+</div>
+`;
+
+exports[`Typography Should render typography component {"Component": [Function PText], "color": "#111111", "fontFamily": "Roboto-Regular"} with default color 1`] = `
+.c0 {
+  font-family: Roboto-Regular;
+  font-size: 14px;
+  line-height: 23px;
+  -webkit-letter-spacing: 0.7px;
+  -moz-letter-spacing: 0.7px;
+  -ms-letter-spacing: 0.7px;
+  letter-spacing: 0.7px;
+  color: #111111;
+}
+
+<div>
+  <p
+    class="c0"
+  >
+    Title
+  </p>
+</div>
+`;

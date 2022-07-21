@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render primary default button 1`] = `
+.c0 {
+  width: 100%;
+  cursor: pointer;
+  min-height: 46px;
+  border: none;
+  border-radius: 23px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-color: transparent;
+  background-color: #2196f3;
+  padding: 12px 25.5px;
+  color: #ffffff;
+}
+
+<div>
+  <button
+    class="c0"
+    data-testid="primary-button"
+  >
+    Click here
+  </button>
+</div>
+`;
+
+exports[`Button should render secondary default button 1`] = `
+.c0 {
+  width: 100%;
+  cursor: pointer;
+  min-height: 46px;
+  border: 1px solid;
+  border-radius: 23px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-color: #2196f3;
+  background-color: #ffffff;
+  padding: 12px 25.5px;
+  color: #111111;
+}
+
+<div>
+  <button
+    class="c0"
+    data-testid="secondary-button"
+  >
+    Click here
+  </button>
+</div>
+`;
