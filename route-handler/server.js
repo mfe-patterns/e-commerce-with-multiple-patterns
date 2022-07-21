@@ -26,6 +26,8 @@ server.use("/cart", match(cartServer));
 
 server.use("/products", match(catalogServer));
 
+server.use("/", match(layoutServer));
+
 server.listen(3000, (err) => {
   if (err) throw err;
   console.log(`> Ready on http://localhost:3000`);
