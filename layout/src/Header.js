@@ -33,7 +33,9 @@ export default () => {
 
   useEffect(() => {
     const addToCartEventlistener = ({ detail }) => {
-      setProductsInCart(detail.productsInCart);
+      const updatedCartItems = [...productsInCart, detail.productsInCart]
+      localStorage.setItem('products', JSON.stringify(updatedCartItems));
+      setProductsInCart(updatedCartItems);
     };
 
     window.addEventListener('UPDATE_CART', addToCartEventlistener)
@@ -43,6 +45,7 @@ export default () => {
   }, []);
 
   const classes = useStyles();
+  
   return (
     <header className={classes.header}>
       <a href="http://localhost:3000/products/">
