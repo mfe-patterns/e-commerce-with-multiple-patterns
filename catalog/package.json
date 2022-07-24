@@ -22,7 +22,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-router-dom": "6.3.0",
-    "ui-components": "file:../ui-components/dist/ui-components-1.0.1.tgz",
+    "ui-components": "file:../ui-components/dist/ui-components-1.0.2.tgz",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

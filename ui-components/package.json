@@ -1,6 +1,6 @@
 {
   "name": "ui-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "storybook": "start-storybook -c .storybook",
     "test": "jest",
     "test:watch": "jest --watch",
-    "copy": "copyfiles -u 1 src/assets/**/*.ttf dist/ --error",
+    "copy": "copyfiles -u 1 src/assets/**/*.ttf src/assets/**/*.png dist/ --error",
     "copypackage": "cp -rf package.json dist",
     "pack-package": "cd dist && npm pack"
   },

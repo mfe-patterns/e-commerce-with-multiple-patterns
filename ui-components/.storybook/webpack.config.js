@@ -20,7 +20,11 @@ module.exports = ({ config }) => {
       patterns: [
         {
           from: path.resolve(__dirname, '../src/assets/fonts'),
-          to: 'fonts',
+          to: 'assets/fonts',
+        },
+        {
+          from: path.resolve(__dirname, '../src/assets/icons'),
+          to: 'assets/icons',
         },
       ],
     }),

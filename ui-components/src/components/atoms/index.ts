@@ -1,7 +1,4 @@
-import { Button, ButtonAction, ButtonSize } from "./Button/Button";
-
-export {
-  Button,
-  ButtonSize,
-  ButtonAction
-}
+export * from "./Button/Button";
+export * from "./TextInput/TextInput";
+export * from "./Typography/Typography";
+export * from "./Icon/Icon";

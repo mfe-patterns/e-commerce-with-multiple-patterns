@@ -10,7 +10,7 @@
     "prepare-layout": "cd layout && npm i",
     "prepare-reviews": "cd reviews && npm i",
     "prepare-ui-component": "cd ui-components && npm i && npm run build && npm run pack-package",
-    "prepare-all": "npm run prepare-server && npm run prepare-cart && npm run prepare-catalog && npm run prepare-layout && npm run prepare-reviews && npm run prepare-ui-component",
+    "prepare-all": "npm run prepare-server && npm run prepare-ui-component && npm run prepare-cart && npm run prepare-catalog && npm run prepare-layout && npm run prepare-reviews",
     "run-layout": "cd layout && npm start",
     "run-catalog": "cd catalog && npm start",
     "run-cart": "cd cart && npm start",
