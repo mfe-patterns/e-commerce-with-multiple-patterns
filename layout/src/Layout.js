@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
   },
   mainContent: {
     flex: 1,
-    marginTop: '30px',
+    marginTop: '75px',
   },
 }));
 

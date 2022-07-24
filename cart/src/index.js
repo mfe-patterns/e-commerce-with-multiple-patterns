@@ -1,14 +1,13 @@
-export * from './ProductList';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StylesProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'ui-components';
 
-import ProductList from './ProductList';
+import Items from './Items';
 
 ReactDOM.render(
-  <StylesProvider>
-    <ProductList />
-  </StylesProvider>,
+  <ThemeProvider theme={theme}>
+    <Items />
+  </ThemeProvider>,
   document.querySelector('#main-dev-root')
 );
