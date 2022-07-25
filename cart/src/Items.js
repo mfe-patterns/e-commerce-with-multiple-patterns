@@ -30,7 +30,7 @@ export default function Items() {
   });
 
   return (
-    <>
+    <div className='container'>
       {
         products.length > 0 ?
           <>
@@ -58,6 +58,6 @@ export default function Items() {
           :
           <HelpText>Cart is Empty </HelpText>
       }
-    </>
+    </div>
   );
 }

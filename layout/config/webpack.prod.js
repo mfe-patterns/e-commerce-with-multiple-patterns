@@ -11,7 +11,7 @@ const devConfig = {
     })  
   ],
   entry: {
-    layout: './src/layout.js'
+    layout: './src/index.js'
   },
   output: {
     filename: '[name].bundle.js',

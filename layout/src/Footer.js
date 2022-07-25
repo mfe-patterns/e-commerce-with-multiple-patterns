@@ -1,30 +1,12 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import { grey } from '@material-ui/core/colors';
+import { Heading3, Heading4 } from 'ui-components';
 
-const useStyles = makeStyles((theme) => ({
-  footer: {
-    backgroundColor: '#f1f3f6',
-    padding: theme.spacing(6),
-  },
-}));
+import * as S from './Footer.styles';
 
 export default () => {
-  const classes = useStyles();
   return (
-    <footer className={classes.footer}>
-      <Typography variant="h6" align="center" gutterBottom>
-        Footer
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        align="center"
-        color="textSecondary"
-        component="p"
-      >
-        Something here to give the footer a purpose!
-      </Typography>
-    </footer>
+    <S.Footer>
+      <Heading4>Something here to give the footer a purpose!</Heading4>
+    </S.Footer>
   )
 }
