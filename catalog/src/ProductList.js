@@ -1,56 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
 
-import { Button, ButtonAction, ButtonSize } from 'ui-components';
-
-const useStyles = makeStyles((theme) => ({
-  '@global': {
-    a: {
-      textDecoration: 'none',
-    },
-  },
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
-}));
-
+import { ButtonAction, ButtonSize, Heading3, PText } from 'ui-components';
+import * as S from './ProductList.styles';
 
 export default function ProductList() {
-  const classes = useStyles();
   const [products, setProducts] = useState([]);
 
   useEffect(async () => {
@@ -65,40 +18,28 @@ export default function ProductList() {
   }
 
   return (
-    <React.Fragment>
-      <Container className={classes.cardGrid} >
-        <Grid container spacing={4}>
-          {products.map((product) => (
-            <Grid item key={product.id} xs={12} sm={6} md={4}>
-              <Card className={classes.card}>
-                <Link to={`/products/${product.id}`}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={product.image}
-                    title={product.title}
-                  />
-                </Link>
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {product.title}
-                  </Typography>
-                  <Typography>
-                    {product.description}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button buttonType={ButtonAction.PRIMARY}
-                    size={ButtonSize.XLARGE}
-                    disabled={false}
-                    onClick={() => addToCart(product)}>
-                    Add to Cart
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </React.Fragment>
+    <S.ProductList>
+      {products.map((product) => (
+        <S.Card key={`${product.id}`}>
+          <S.Link to={`/products/${product.id}`}>
+            <S.Image src={product.image} />
+          </S.Link>
+          <S.Details>
+            <S.Title>{product.title}</S.Title>
+            <PText>{product.category}</PText>
+            <PText>{product.rating.rate} out of 5</PText>
+            <S.PriceRow>
+              <Heading3>₹ {product.price}</Heading3>
+              <S.AddToCart buttonType={ButtonAction.PRIMARY}
+                size={ButtonSize.SMALL}
+                disabled={false}
+                onClick={() => addToCart(product)}>
+                Add to Cart
+              </S.AddToCart>
+            </S.PriceRow>
+          </S.Details>
+        </S.Card>
+      ))}
+    </S.ProductList>
   );
 }

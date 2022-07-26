@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Heading4, HelpText } from 'ui-components/components/atoms';
+import { Heading4, PText } from 'ui-components/components/atoms';
 
 import * as S from "./Items.styles";
 
 export default function Items() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(async () => {
     const productsInCart = JSON.parse(localStorage.getItem('products')) || [];
     const productsResponse = await Promise.all(productsInCart.map(productId => fetch(`https://fakestoreapi.com/products/${productId}`)));
     const products = await Promise.all(productsResponse.map(res => res.json()));
 
+    setLoading(false);
     setProducts(products);
   }, []);
 
@@ -30,10 +32,10 @@ export default function Items() {
   });
 
   return (
-    <div className='container'>
+    <>
       {
-        products.length > 0 ?
-          <>
+        products.length > 0 && !loading && (
+          <ul>
             <S.ProductHeaderRow>
               <S.PriceText>Price</S.PriceText>
             </S.ProductHeaderRow>
@@ -43,7 +45,7 @@ export default function Items() {
                 <S.Title>
                   <Heading4>{product.title}</Heading4>
                   <S.Delete>
-                    <HelpText onClick={() => removeFromCart(product)}>Delete</HelpText>
+                    <PText onClick={() => removeFromCart(product)}>Remove</PText>
                   </S.Delete>
                 </S.Title>
                 <strong>
@@ -54,10 +56,16 @@ export default function Items() {
             <S.ProductHeaderRow>
               <S.PriceText>Total: {totalPrice()}</S.PriceText>
             </S.ProductHeaderRow>
-          </>
-          :
-          <HelpText>Cart is Empty </HelpText>
+          </ul>
+        )
       }
-    </div>
+      {
+        products.length === 0 && !loading && (
+          <S.CartEmpty>
+            <Heading4>Cart is empty</Heading4>
+          </S.CartEmpty>
+        )
+      }
+    </>
   );
 }

@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StylesProvider } from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 
 ReactDOM.render(
-  <StylesProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <div className='container'>
       <App />
-    </BrowserRouter>
-  </StylesProvider>,
+    </div>
+  </BrowserRouter>,
   document.querySelector('#main-dev-root')
 );

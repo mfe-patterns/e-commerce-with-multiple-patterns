@@ -7,7 +7,9 @@ import Items from './Items';
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <Items />
+    <div className='container'>
+      <Items />
+    </div>
   </ThemeProvider>,
   document.querySelector('#main-dev-root')
 );
