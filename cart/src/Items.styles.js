@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Heading4 } from 'ui-components/components/atoms';
+import { Heading4 } from 'ui-components';
 
 export const ProductRow = styled.li`
   display: flex;

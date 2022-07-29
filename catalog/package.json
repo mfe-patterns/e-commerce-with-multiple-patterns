@@ -21,7 +21,7 @@
     "react-dom": "17.0.1",
     "react-router-dom": "6.3.0",
     "styled-components": "^5.3.3",
-    "ui-components": "file:../ui-components/dist/ui-components-1.0.2.tgz"
+    "ui-components": "git@github.com:Vishalsh/ui-components.git"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

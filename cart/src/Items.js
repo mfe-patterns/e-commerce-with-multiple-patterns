@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Heading4, PText } from 'ui-components/components/atoms';
+import { Heading4, PText } from 'ui-components';
 
 import * as S from "./Items.styles";
 
