@@ -62,7 +62,7 @@ export default function Items() {
       {
         products.length === 0 && !loading && (
           <S.CartEmpty>
-            <Heading4>Cart is empty</Heading4>
+            <Heading4>No item in the cart</Heading4>
           </S.CartEmpty>
         )
       }

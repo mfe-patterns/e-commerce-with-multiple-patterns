@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Heading1, Heading2, Button, PText, ButtonAction, ButtonSize } from 'ui-components';
+
 import Reviews from "./Reviews";
+
+import * as S from './ProductDetails.styles';
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -12,23 +16,36 @@ export default function ProductDetails() {
   }, []);
 
   const addToCart = (e) => {
-    const event = new CustomEvent('ADD_TO_CART', {detail: { productId: product.id}});
+    const event = new CustomEvent('ADD_TO_CART', { detail: { productId: product.id } });
     window.dispatchEvent(event)
   }
 
   return (
-    <section className="product-detail-container">
-      <article>
-        <img src={product.image} width="200" alt={product.title} className="product-image" />
-        <h2>{product.title}</h2>
-        <p>{product.description}</p>
-        <div>
-          Ratings: {product?.rating?.rate} out of 5. <br />
-          No. of ratings: {product?.rating?.count}
-        </div>
-        <button onClick={addToCart}>Add to cart</button>
-      </article>
+    <>
+      <S.ProductDetails>
+        <S.ImageContainer>
+          <S.ProductImage src={product?.image} alt={product.title} className="product-image" />
+        </S.ImageContainer>
+        <S.ProductInfo>
+          <div>
+            <Heading1>{product.title}</Heading1>
+            <S.SpaceTop />
+            <Heading2>₹ {product.price}</Heading2>
+            <S.SpaceTop />
+            <PText>
+              Ratings: {product?.rating?.rate} out of 5. ({product?.rating?.count} reviews)
+            </PText>
+            <S.SpaceTop />
+            <PText>{product.description}</PText>
+          </div>
+          <Button buttonType={ButtonAction.PRIMARY}
+            size={ButtonSize.DEFAULT}
+            onClick={addToCart}>
+            Add to Cart
+          </Button>
+        </S.ProductInfo>
+      </S.ProductDetails>
       <Reviews />
-    </section>
+    </>
   );
 }
