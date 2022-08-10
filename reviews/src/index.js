@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import Reviews from './Reviews';
 
 ReactDOM.render(
-    <Reviews />,
+  <Reviews />,
   document.querySelector('#review-dev-root')
 );

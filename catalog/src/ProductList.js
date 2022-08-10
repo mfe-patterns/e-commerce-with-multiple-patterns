@@ -21,7 +21,7 @@ export default function ProductList() {
     <S.ProductList>
       {products.map((product) => (
         <S.Card key={`${product.id}`}>
-          <S.Link to={`/products/${product.id}`}>
+          <S.Link to={`/products/${product.id}?category=${product.category}`}>
             <S.Image src={product.image} />
           </S.Link>
           <S.Details>
