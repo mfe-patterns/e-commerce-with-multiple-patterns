@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { custReviews } from './customer-reviews.js';
+import { PText } from 'ui-components';
+
+import * as S from './Reviews.styles';
 
 function mergeReviewImage(images) {
   const productCategory = new URLSearchParams(window.location.search).get('category');
@@ -14,7 +17,8 @@ function mergeReviewImage(images) {
           id: images[index].id,
           name: images[index].author,
           image: images[index],
-          reviews: review
+          rating: Math.floor(Math.random() * 5),
+          review,
         }
       ));
   }
@@ -31,16 +35,27 @@ export default function Reviews() {
   }, []);
 
   if (reviews.length === 0) {
-    return 'No Customer reviews for the product';
+    return <PText>No Customer reviews for the product</PText>;
   }
 
-  return reviews.map((review) => {
-    return (
-      <div className="review-container" key={review.id}>
-        <img src={review.image.download_url} width="50" height="50" alt={review.name} />
-        <b>{review.name}</b>
-        <p>{review.reviews}</p>
-      </div>
-    )
-  })
+  return (
+    <S.ReviewContainer>
+      {
+        reviews.map((review) => (
+          <S.Review key={review.id}>
+            <article>
+              <S.UserDetails>
+                <S.CutomerImage src={review.image.download_url} alt={review.name} />
+                <strong>
+                  <S.CustomerName>{review.name}</S.CustomerName>
+                </strong>
+                <S.Rating value={review.rating}>{review.rating}★</S.Rating>
+              </S.UserDetails>
+              <PText>{review.review}</PText>
+            </article>
+          </S.Review>
+        ))
+      }
+    </S.ReviewContainer>
+  )
 }

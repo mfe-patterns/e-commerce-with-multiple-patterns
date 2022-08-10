@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Heading1, Heading2, Button, PText, ButtonAction, ButtonSize } from 'ui-components';
 
-import Reviews from "./Reviews";
+import MicroFrontend from "./MicroFrontend";
 
 import * as S from './ProductDetails.styles';
 
@@ -45,7 +45,8 @@ export default function ProductDetails() {
           </Button>
         </S.ProductInfo>
       </S.ProductDetails>
-      <Reviews />
+
+      <MicroFrontend src="http://localhost:8083/review.bundle.js" elementId="review-dev-root" />
     </>
   );
 }
