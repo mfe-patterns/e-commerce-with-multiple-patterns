@@ -46,7 +46,7 @@ export default function ProductDetails() {
         </S.ProductInfo>
       </S.ProductDetails>
 
-      <MicroFrontend src="http://localhost:8083/review.bundle.js" elementId="review-dev-root" />
+      <MicroFrontend src="http://localhost:8083/review.bundle.js" />
     </>
   );
 }

@@ -4,11 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 
+window.createMfeContainerInLayout('catalog-root');
+
 ReactDOM.render(
   <BrowserRouter>
     <div className='container'>
       <App />
     </div>
   </BrowserRouter>,
-  document.querySelector('#main-dev-root')
+  document.querySelector('#catalog-root')
 );

@@ -5,11 +5,13 @@ import { theme } from 'ui-components';
 
 import Items from './Items';
 
+window.createMfeContainerInLayout('cart-root');
+
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <div className='container'>
       <Items />
     </div>
   </ThemeProvider>,
-  document.querySelector('#main-dev-root')
+  document.querySelector('#cart-root')
 );
